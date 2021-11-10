@@ -1,4 +1,4 @@
-package com.poecat.MarshmallowQuiz;
+package com.poecat.MarshmallowQuiz.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
