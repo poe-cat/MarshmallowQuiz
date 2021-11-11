@@ -13,3 +13,47 @@ body {
 .main-container {
 
 }
+
+@media screen and (max-width: 992px) {
+  body {
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-color: olive;
+  }
+}
+
+.image-box {
+
+}
+
+.image-box img {
+
+}
+
+.text-box {
+
+}
+
+.card {
+
+}
+
+.card p {
+
+}
+
+.card input {
+
+}
+
+.warning {
+
+}
+
+footer {
+
+}
