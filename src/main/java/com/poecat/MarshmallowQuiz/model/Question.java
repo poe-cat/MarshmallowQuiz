@@ -15,8 +15,8 @@ public class Question {
     private String optionA;
     private String optionB;
     private String optionC;
-    private int ans;
-    private int chose;
+    private int answer;
+    private int choice;
 
     public Question() {
         //empty?
