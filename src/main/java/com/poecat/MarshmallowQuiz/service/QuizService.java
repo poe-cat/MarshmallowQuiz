@@ -41,4 +41,15 @@ public class QuizService {
 
         return qForm;
     }
+
+    public int getResult(QuestionForm qForm) {
+        int correct = 0;
+
+        for(Question q: qForm.getQuestions())
+            if(question.getAnswer() == question.getChoice())
+                correct++;
+
+        return correct;
+    }
+
 }
