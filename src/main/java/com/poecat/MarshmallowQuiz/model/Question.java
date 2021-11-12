@@ -1,7 +1,11 @@
 package com.poecat.MarshmallowQuiz.model;
 
 import org.springframework.stereotype.Component;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Component
 @Entity
@@ -19,7 +23,7 @@ public class Question {
     private int choice;
 
     public Question() {
-        //empty?
+       super();
     }
 
     public Question(int quesId, String title, String optionA,
