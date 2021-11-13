@@ -2,9 +2,9 @@ package com.poecat.MarshmallowQuiz.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@ComponentScan("com.poecat.repo")
+@EnableJpaRepositories("com.poecat.MarshmallowQuiz.repo")
 @SpringBootApplication
 public class MarshmallowQuizApplication {
 
