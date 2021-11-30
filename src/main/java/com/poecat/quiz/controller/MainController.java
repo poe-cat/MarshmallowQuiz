@@ -1,8 +1,8 @@
-package com.poecat.MarshmallowQuiz.controller;
+package com.poecat.quiz.controller;
 
-import com.poecat.MarshmallowQuiz.model.QuestionForm;
-import com.poecat.MarshmallowQuiz.model.Result;
-import com.poecat.MarshmallowQuiz.service.QuizService;
+import com.poecat.quiz.model.QuestionForm;
+import com.poecat.quiz.model.Result;
+import com.poecat.quiz.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
+
 
 @Controller
 public class MainController {
@@ -35,9 +38,10 @@ public class MainController {
     @PostMapping("/quiz")
     public String quiz(@RequestParam String username, Model m, RedirectAttributes ra) {
         if(username.equals("")) {
-            ra.addFlashAttribute("Hold on...", "Please enter your name");
+            ra.addFlashAttribute("Hold on...", "Enter your name first");
             return "redirect:/";
         }
+
         submitted = false;
         result.setUsername(username);
 
@@ -47,7 +51,22 @@ public class MainController {
         return "quiz.html";
     }
 
+    @PostMapping("/submit")
+    public String submit(@ModelAttribute QuestionForm qForm, Model m) {
+        if(!submitted) {
+            result.setTotalCorrect(qService.getResult(qForm));
+            qService.saveScore(result);
+            submitted = true;
+        }
 
+        return "result.html";
+    }
 
+    @GetMapping("/score")
+    public String score(Model m) {
+        List<Result> sList = qService.getTopScore();
+        m.addAttribute("sList", sList);
 
+        return "scoreboard.html";
+    }
 }
