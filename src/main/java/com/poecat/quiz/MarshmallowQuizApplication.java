@@ -1,10 +1,8 @@
-package com.poecat.MarshmallowQuiz.service;
+package com.poecat.quiz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EnableJpaRepositories("com.poecat.MarshmallowQuiz.repo")
 @SpringBootApplication
 public class MarshmallowQuizApplication {
 
