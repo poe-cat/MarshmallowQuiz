@@ -1,4 +1,4 @@
-package com.poecat.MarshmallowQuiz.model;
+package com.poecat.quiz.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

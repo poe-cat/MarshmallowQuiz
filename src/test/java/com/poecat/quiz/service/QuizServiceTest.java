@@ -1,4 +1,4 @@
-package com.poecat.MarshmallowQuiz.service;
+package com.poecat.quiz.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
-package com.poecat.MarshmallowQuiz.repo;
+package com.poecat.quiz.repo;
 
-import com.poecat.MarshmallowQuiz.model.Question;
+import com.poecat.quiz.model.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

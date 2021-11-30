@@ -1,11 +1,12 @@
-package com.poecat.MarshmallowQuiz.model;
+package com.poecat.quiz.model;
 
-import org.springframework.stereotype.Component;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
 
 @Component
 @Entity
