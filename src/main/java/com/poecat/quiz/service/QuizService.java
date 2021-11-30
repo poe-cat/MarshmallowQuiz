@@ -1,15 +1,17 @@
-package com.poecat.MarshmallowQuiz.service;
+package com.poecat.quiz.service;
 
-import com.poecat.MarshmallowQuiz.model.Question;
-import com.poecat.MarshmallowQuiz.model.QuestionForm;
-import com.poecat.MarshmallowQuiz.model.Result;
-import com.poecat.MarshmallowQuiz.repo.QuestionRepo;
-import com.poecat.MarshmallowQuiz.repo.ResultRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import com.poecat.quiz.model.Question;
+import com.poecat.quiz.model.QuestionForm;
+import com.poecat.quiz.model.Result;
+import com.poecat.quiz.repo.QuestionRepo;
+import com.poecat.quiz.repo.ResultRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 @Service
 public class QuizService {
@@ -20,7 +22,6 @@ public class QuizService {
     QuestionForm qForm;
     @Autowired
     QuestionRepo qRepo;
-
     @Autowired
     Result result;
     @Autowired
@@ -37,6 +38,7 @@ public class QuizService {
             qList.add(allQues.get(rand));
             allQues.remove(rand);
         }
+
         qForm.setQuestions(qList);
 
         return qForm;
@@ -52,4 +54,16 @@ public class QuizService {
         return correct;
     }
 
+    public void saveScore(Result result) {
+        Result saveResult = new Result();
+        saveResult.setUsername(result.getUsername());
+        saveResult.setTotalCorrect(result.getTotalCorrect());
+        rRepo.save(saveResult);
+    }
+
+    public List<Result> getTopScore() {
+        List<Result> sList = rRepo.findAll(Sort.by(Sort.Direction.DESC, "totalCorrect"));
+
+        return sList;
+    }
 }
