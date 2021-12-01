@@ -20,23 +20,23 @@ public class Question {
     private String optionA;
     private String optionB;
     private String optionC;
-    private int answer;
-    private int choice;
+    private int ans;
+    private int chose;
 
     public Question() {
        super();
     }
 
     public Question(int quesId, String title, String optionA,
-                    String optionB, String optionC, int answer, int choice) {
+                    String optionB, String optionC, int ans, int chose) {
         super();
         this.quesId = quesId;
         this.title = title;
         this.optionA = optionA;
         this.optionB = optionB;
         this.optionC = optionC;
-        this.answer = answer;
-        this.choice = choice;
+        this.ans = ans;
+        this.chose = chose;
     }
 
     public int getQuesId() {
@@ -79,20 +79,20 @@ public class Question {
         this.optionC = optionC;
     }
 
-    public int getAnswer() {
-        return answer;
+    public int getAns() {
+        return ans;
     }
 
-    public void setAnswer(int answer) {
-        this.answer = answer;
+    public void setAns(int ans) {
+        this.ans = ans;
     }
 
-    public int getChoice() {
-        return choice;
+    public int getChose() {
+        return chose;
     }
 
-    public void setChoice(int choice) {
-        this.choice = choice;
+    public void setChose(int chose) {
+        this.chose = chose;
     }
 
     @Override
@@ -102,7 +102,7 @@ public class Question {
                 "optionA=" + optionA + ", " +
                 "optionB=" + optionB + ", " +
                 "optionC=" + optionC + ", " +
-                "answer=" + answer + ", " +
-                "choice=" + choice + "]";
+                "ans=" + ans + ", " +
+                "chose=" + chose + "]";
     }
 }

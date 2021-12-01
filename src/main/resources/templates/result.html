@@ -28,12 +28,12 @@
 			</div>
 			
 			<div class="d-flex justify-content-center">
-				<p>Total correct answers:&nbsp;&nbsp;</p>
+				<p>Total correct answer:&nbsp;&nbsp;</p>
 				<p th:if="${result}" th:text="${result.totalCorrect}"></p>
 			</div>
 			
 			<div class="d-flex justify-content-center">
-				<p>Total incorrect answers:&nbsp;&nbsp;</p>
+				<p>Total false answer:&nbsp;&nbsp;</p>
 				<p th:if="${result}" th:text="5 - ${result.totalCorrect}"></p>
 			</div>
 			

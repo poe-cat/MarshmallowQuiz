@@ -48,7 +48,7 @@ public class QuizService {
         int correct = 0;
 
         for(Question q: qForm.getQuestions())
-            if(q.getAnswer() == q.getChoice())
+            if(q.getAns() == q.getChose())
                 correct++;
 
         return correct;
