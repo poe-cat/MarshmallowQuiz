@@ -15,9 +15,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .mvcMatchers(HttpMethod.GET, "/quiz")
-                .permitAll()
-                .anyRequest().permitAll()
+                .mvcMatchers(HttpMethod.GET, "/quiz").permitAll()
+                .anyRequest().hasRole("ADMIN")
+                .and().formLogin().permitAll()
+                .and().logout().permitAll()
                 .and().csrf().disable();
     }
 
