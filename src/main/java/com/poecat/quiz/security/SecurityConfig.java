@@ -15,10 +15,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .mvcMatchers(HttpMethod.GET, "/scoreboard/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic();
+                .mvcMatchers(HttpMethod.GET, "/quiz")
+                .permitAll()
+                .anyRequest().permitAll()
+                .and().csrf().disable();
     }
 
     @Override
