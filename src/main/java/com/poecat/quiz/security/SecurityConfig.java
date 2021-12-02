@@ -14,7 +14,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
+                .httpBasic().and().authorizeRequests()
                 .mvcMatchers(HttpMethod.GET, "/quiz").permitAll()
                 .anyRequest().hasRole("ADMIN")
                 .and().formLogin().permitAll()
@@ -25,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("poecat@example.org")
+                .withUser("poe-cat")
                 .password("{noop}xxx")
                 .roles("USER")
                 .and()
