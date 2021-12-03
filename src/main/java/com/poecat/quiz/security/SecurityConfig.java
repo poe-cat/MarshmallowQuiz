@@ -14,12 +14,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .httpBasic().and().authorizeRequests()
+                .httpBasic()
+                .and()
+                .authorizeRequests()
                 .mvcMatchers(HttpMethod.GET, "/quiz").permitAll()
                 .anyRequest().hasRole("ADMIN")
-                .and().formLogin().permitAll()
-                .and().logout().permitAll()
-                .and().csrf().disable();
+                .and()
+                .formLogin().permitAll()
+                .and()
+                .logout().permitAll()
+                .and()
+                .csrf().disable();
     }
 
     @Override
