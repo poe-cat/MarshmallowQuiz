@@ -13,18 +13,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .httpBasic()
-                .and()
-                .authorizeRequests()
-                .mvcMatchers(HttpMethod.GET, "/quiz").permitAll()
-                .anyRequest().hasRole("ADMIN")
-                .and()
-                .formLogin().permitAll()
-                .and()
-                .logout().permitAll()
-                .and()
-                .csrf().disable();
+
+        http.authorizeRequests()
+                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/poe-cat").hasAnyRole("USER","ADMIN")
+                .antMatchers("/").permitAll()
+                .and().formLogin()
+                .and().csrf().disable();
     }
 
     @Override

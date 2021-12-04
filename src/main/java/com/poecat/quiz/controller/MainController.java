@@ -35,6 +35,16 @@ public class MainController {
         return "index.html";
     }
 
+    @GetMapping("/poe-cat")
+    public String user() {
+        return "indexU.html";
+    }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "indexA.html";
+    }
+
     @PostMapping("/quiz")
     public String quiz(@RequestParam String username, Model m, RedirectAttributes ra) {
         if(username.equals("")) {
