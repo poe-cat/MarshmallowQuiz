@@ -23,9 +23,12 @@
     <div class="text-box">
         <h1 class="mb-5 text-center">Hey, Admin!</h1>
         <form class="card bg-dark py-5 px-4" action="/quiz" method="POST">
-            <p>Enter your name</p>
-            <input type="text" name="username" />
-            <p class="text-danger warning" th:if="${warning}" th:text="${warning}"></p>
+            <p>Choose your quiz</p>
+            <select>
+                <option value="JavaQuiz">Java Quiz - Java basics: syntax, loops, etc.</option>
+                <option value="SpringQuiz">Spring Boot Quiz - annotations, main functions</option>
+                <option value="MarshmallowQuiz">Marshmallow Quiz - so you consider yourself as a patient one?</option>
+            </select>
             <button type="submit" class="btn btn-warning">Start quiz</button>
         </form>
     </div>
