@@ -1,17 +1,19 @@
 package com.poecat.quiz;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Arrays;
 import java.util.Collection;
 
 
 @Entity
-public class MyUser implements UserDetails {
+public class MyUserDetails implements UserDetails {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -20,38 +22,45 @@ public class MyUser implements UserDetails {
     private String username;
     private String password;
 
+    public MyUserDetails(String username) {
+        this.username = username;
+    }
+
+    public MyUserDetails() {
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return "pass";
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

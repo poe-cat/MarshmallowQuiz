@@ -35,7 +35,7 @@ public class MainController {
         return "index.html";
     }
 
-    @GetMapping("/poe-cat")
+    @GetMapping("/user")
     public String user() {
         return "indexU.html";
     }
