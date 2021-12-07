@@ -1,4 +1,4 @@
-package com.poecat.quiz;
+package com.poecat.quiz.model;
 
 import com.poecat.quiz.model.User;
 import org.springframework.security.core.GrantedAuthority;
