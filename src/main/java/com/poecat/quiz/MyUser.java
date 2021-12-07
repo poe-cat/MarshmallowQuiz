@@ -11,7 +11,7 @@ import java.util.Collection;
 
 
 @Entity
-public class User implements UserDetails {
+public class MyUser implements UserDetails {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
