@@ -1,3 +1,12 @@
+insert into quizzes(quizId, quiz1Name, quiz2Name, chosenQuiz)
+values(
+	1,
+	'Java quiz',
+	'Spring Boot quiz',
+	-1)
+;
+
+
 insert into questions(ques_id, title, optionA, optionB, optionC, ans, chose)
 values(
 	1, 
