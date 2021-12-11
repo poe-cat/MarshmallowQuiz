@@ -20,11 +20,11 @@ public class MarshmallowQuizApplication {
 		SpringApplication.run(MarshmallowQuizApplication.class, args);
 	}
 
-	@EventListener(ApplicationReadyEvent.class)
-	public void sendMail() {
-		senderService.sendEmail("someone@mail.com",
-				"First to ecounter",
-				"This is my first mail to you, dear.");
-	}
+//	@EventListener(ApplicationReadyEvent.class)
+//	public void sendMail() {
+//		senderService.sendEmail("someone@mail.com",
+//				"First to ecounter",
+//				"This is my first mail to you, dear.");
+//	}
 
 }
