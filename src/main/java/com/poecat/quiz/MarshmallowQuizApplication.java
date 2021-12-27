@@ -2,6 +2,7 @@ package com.poecat.quiz;
 
 import com.poecat.quiz.repo.UserRepo;
 import com.poecat.quiz.service.EmailSenderService;
+import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackageClasses = UserRepo.class)
+@EnableEncryptableProperties
 public class MarshmallowQuizApplication {
 
 	@Autowired
