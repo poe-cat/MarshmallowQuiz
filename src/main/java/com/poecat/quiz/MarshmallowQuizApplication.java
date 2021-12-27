@@ -12,7 +12,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackageClasses = UserRepo.class)
-@EnableEncryptableProperties
 public class MarshmallowQuizApplication {
 
 	@Autowired
