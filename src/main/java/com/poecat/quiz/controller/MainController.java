@@ -48,7 +48,7 @@ public class MainController {
     @PostMapping("/quiz")
     public String quiz(@RequestParam String username, Model m, RedirectAttributes ra) {
         if(username.equals("")) {
-            ra.addFlashAttribute("Hold on...", "Enter your name first");
+            ra.addFlashAttribute("warning", "You must enter your name first!");
             return "redirect:/";
         }
 
