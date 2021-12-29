@@ -10,7 +10,7 @@ values(
 insert into questions(ques_id, title, optionA, optionB, optionC, ans, chose)
 values(
 	1, 
-	'What is a correct syntax to output "Hello World" in Java?',  
+	'What is a correct syntax to output "Hello World" in Java?',
 	'echo "Hello World"',
 	'printf("Hello World")',
 	'System.out.println("Hello World")',
@@ -114,16 +114,5 @@ values(
 	'&|',
 	'==',
 	3,
-	-1)
-;
-
-insert into questions(ques_id, title, optionA, optionB, optionC, ans, chose)
-values(
-	11,
-	'Why why why?',
-	'y',
-	'5',
-	'c',
-	1,
 	-1)
 ;
