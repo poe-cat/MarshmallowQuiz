@@ -79,4 +79,10 @@ public class MainController {
 
         return "scoreboard.html";
     }
+
+    @GetMapping("/learn")
+    public String learn() {
+        //TODO: exceptions
+        return "learn.html";
+    }
 }
