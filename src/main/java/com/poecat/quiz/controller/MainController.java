@@ -31,6 +31,11 @@ public class MainController {
         return result;
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login.html";
+    }
+
     @GetMapping("/")
     public String home() {
         return "index.html";
