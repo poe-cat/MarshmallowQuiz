@@ -32,9 +32,24 @@ public class MainController {
     }
 
     @GetMapping("/login")
-    public String login() {
-        return "login.html";
+    public String viewLoginPage() {
+        return "login";
     }
+
+    @PostMapping("/indexU")
+    public String loginSuccessHandler() {
+        System.out.println("User login successed...");
+
+        return "indexU";
+    }
+
+    @PostMapping("/login_failure_handler")
+    public String loginFailureHandler() {
+        System.out.println("Login failure handler...");
+
+        return "login";
+    }
+
 
     @GetMapping("/")
     public String home() {
