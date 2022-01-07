@@ -14,6 +14,9 @@
 
 <!-- Importing NavBar -->
 <div th:insert="navbar.html :: navbar"></div>
+<form th:action="@{/doLogout}" method="post">
+    <input type="submit" value="Logout" />
+</form>
 
 <!-- Main Container Start -->
 <div class="main-container container py-5 px-4">
@@ -21,7 +24,7 @@
         <img th:src="@{/images/cat.png}" alt="image">
     </div>
     <div class="text-box">
-        <h1 class="mb-5 text-center">Hey, poe-cat!</h1>
+        <h1 class="mb-5 text-center">Hey, User!</h1>
         <form class="card bg-dark py-5 px-4" action="/quiz" method="POST">
             <p>Choose your quiz</p>
             <select>
@@ -30,9 +33,6 @@
                 <option value="MarshmallowQuiz">Marshmallow Quiz - so you consider yourself as a patient one?</option>
             </select>
             <button type="submit" class="btn btn-warning">Start quiz</button>
-        </form>
-        <form th:action="@{/doLogout}" method="post">
-            <input type="submit" value="Logout" />
         </form>
     </div>
 </div>
