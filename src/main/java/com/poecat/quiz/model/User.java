@@ -11,7 +11,7 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private boolean active;
+    private boolean active = true;
     private String roles;
 
     public int getId() {
