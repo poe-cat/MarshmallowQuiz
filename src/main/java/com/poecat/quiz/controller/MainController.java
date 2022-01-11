@@ -5,12 +5,10 @@ import com.poecat.quiz.model.QuestionForm;
 import com.poecat.quiz.model.Result;
 import com.poecat.quiz.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -57,7 +55,8 @@ public class MainController {
     }
 
     @GetMapping("/user")
-    public String user() {
+    public String user(@CurrentSecurityContext(expression="authentication?.name")
+                                   String username) {
         return "indexU.html";
     }
 
@@ -73,6 +72,18 @@ public class MainController {
             return "redirect:/";
         }
 
+        submitted = false;
+        result.setUsername(username);
+
+        QuestionForm qForm = qService.getQuestions();
+        m.addAttribute("qForm", qForm);
+
+        return "quiz.html";
+    }
+
+    @PostMapping("/quizLoggedIn")
+    public String quizLoggedIn(@CurrentSecurityContext(expression="authentication?.name")
+                                           String username, Model m, RedirectAttributes ra) {
         submitted = false;
         result.setUsername(username);
 
