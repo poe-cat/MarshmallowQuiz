@@ -1,35 +1,5 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
 body {
 background-color: lightblue;
 	width: 100%;
 	overflow-x: hidden;
-}
-
-.main-container {
-	min-height: calc(100vh - 136px);
-	display: flex;
-}
-
-.image-box {
-	grid-area: image-box;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.image-box img {
-	width: 50%;
-	max-width: 450px;
-}
-
-
-footer {
-	height: 80px;
-	text-align: center;
-	line-height: 80px;
 }
