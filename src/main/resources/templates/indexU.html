@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,9 +14,13 @@
 
 <!-- Importing NavBar -->
 <div th:insert="navbar.html :: navbar"></div>
-<form th:action="@{/doLogout}" method="post">
-    <input type="submit" value="Logout" />
-</form>
+
+
+<div class="alert alert-primary" role="alert">
+    <form th:action="@{/doLogout}" method="post">
+        <input type="submit" class="btn btn-primary btn-sm text-center" value="Logout" />
+    </form>
+</div>
 
 <!-- Main Container Start -->
 <div class="main-container container py-5 px-4">
@@ -24,14 +28,8 @@
         <img th:src="@{/images/cat.png}" alt="image">
     </div>
     <div class="text-box">
-        <h1 class="mb-5 text-center">Hey, User!</h1>
-        <form class="card bg-dark py-5 px-4" action="/quiz" method="POST">
-            <p>Choose your quiz</p>
-            <select>
-                <option value="JavaQuiz">Java Quiz - Java basics: syntax, loops, etc.</option>
-                <option value="SpringQuiz">Spring Boot Quiz - annotations, main functions</option>
-                <option value="MarshmallowQuiz">Marshmallow Quiz - so you consider yourself as a patient one?</option>
-            </select>
+        <h1 class="mb-5 text-center">Hey, <span sec:authentication="name">Username</span>!</h1>
+        <form class="card bg-dark py-5 px-4" action="/quizLoggedIn" method="POST">
             <button type="submit" class="btn btn-warning">Start quiz</button>
         </form>
     </div>
