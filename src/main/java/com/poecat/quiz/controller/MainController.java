@@ -3,6 +3,7 @@ package com.poecat.quiz.controller;
 import com.poecat.quiz.exception.ResourceUnavailableException;
 import com.poecat.quiz.model.QuestionForm;
 import com.poecat.quiz.model.Result;
+import com.poecat.quiz.model.User;
 import com.poecat.quiz.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
@@ -29,17 +30,18 @@ public class MainController {
         return result;
     }
 
+    @GetMapping("/register")
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("user", new User());
+
+        return "signup_form";
+    }
+
     @GetMapping("/login")
     public String viewLoginPage() {
         return "login";
     }
 
-    @PostMapping("/indexU")
-    public String loginSuccessHandler() {
-        System.out.println("User login successed...");
-
-        return "indexU";
-    }
 
     @PostMapping("/login_failure_handler")
     public String loginFailureHandler() {
@@ -47,7 +49,6 @@ public class MainController {
 
         return "login";
     }
-
 
     @GetMapping("/")
     public String home() {
