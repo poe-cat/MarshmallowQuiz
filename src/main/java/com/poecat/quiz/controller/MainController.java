@@ -4,9 +4,11 @@ import com.poecat.quiz.exception.ResourceUnavailableException;
 import com.poecat.quiz.model.QuestionForm;
 import com.poecat.quiz.model.Result;
 import com.poecat.quiz.model.User;
+import com.poecat.quiz.repo.UserRepo;
 import com.poecat.quiz.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,8 @@ public class MainController {
     Result result;
     @Autowired
     QuizService qService;
+    @Autowired
+    UserRepo userRepo;
 
     Boolean submitted = false;
 
@@ -35,6 +39,17 @@ public class MainController {
         model.addAttribute("user", new User());
 
         return "signup_form";
+    }
+
+    @PostMapping("/process_register")
+    public String processRegister(User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+
+        userRepo.save(user);
+
+        return "register_success";
     }
 
     @GetMapping("/login")
