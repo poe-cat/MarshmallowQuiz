@@ -27,8 +27,8 @@ public class UserRepoTest {
         user.setUsername("Ravix");
         user.setPassword("ravix123");
         user.setEmail("ravi@o2.pl");
-        user.setActive(true);
-        user.setRoles("USER");
+        user.setEnabled(true);
+
 
         User savedUser = repo.save(user);
         User existUser = entityManager.find(User.class, savedUser.getId());
