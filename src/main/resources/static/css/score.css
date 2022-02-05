@@ -5,6 +5,8 @@
 }
 
 body {
+    background-color: #738bdc;
+    background-image: linear-gradient(315deg, #738bdc 0%, #48c3eb 74%);
 	width: 100%;
 	overflow-x: hidden;
 }
