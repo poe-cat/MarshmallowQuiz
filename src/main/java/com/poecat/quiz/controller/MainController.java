@@ -1,6 +1,5 @@
 package com.poecat.quiz.controller;
 
-import com.poecat.quiz.exception.ResourceUnavailableException;
 import com.poecat.quiz.model.QuestionForm;
 import com.poecat.quiz.model.Result;
 import com.poecat.quiz.model.User;
@@ -130,6 +129,8 @@ public class MainController {
 
     @GetMapping("/learn")
     public String learn() {
-        throw new ResourceUnavailableException("Sorry! There's nothing here... for now.");
+        //throw new ResourceUnavailableException("Sorry! There's nothing here... for now.");
+
+        return "learn.html";
     }
 }
