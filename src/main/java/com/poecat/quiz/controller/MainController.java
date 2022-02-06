@@ -129,8 +129,6 @@ public class MainController {
 
     @GetMapping("/learn")
     public String learn() {
-        //throw new ResourceUnavailableException("Sorry! There's nothing here... for now.");
-
         return "learn.html";
     }
 }
